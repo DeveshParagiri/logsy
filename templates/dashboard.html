@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="api-key" content="{{ api_key }}">
+    <title>Logsy Dashboard</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="/" class="back-btn">
+                <span>←</span>
+                Return Home
+            </a>
+            
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">🚀</div>
+                    <h1 class="title">Logsy Dashboard</h1>
+                    <div id="status-dot" class="status-dot disconnected" title="Connection status"></div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="api-key" onclick="copyApiKey()" title="Click to copy">{{ api_key }}</div>
+                    <div id="status" class="status disconnected">
+                        <span>⚫</span>
+                        Disconnected
+                    </div>
+                    <button class="copy-script-btn" onclick="copyScript()" title="Copy installation script">
+                        📋 Script
+                    </button>
+                    <button class="stop-logsy-btn" onclick="showStopModal()" title="How to stop Logsy processes">
+                        🛑 Stop Logsy
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="stats-compact">
+            <div class="stat-item">
+                <span class="stat-label">Total:</span>
+                <span id="totalLogs" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Per min:</span>
+                <span id="logsPerMinute" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Connected for:</span>
+                <span id="uptime" class="stat-value">0s</span>
+            </div>
+        </div> -->
+        
+        <div class="logs-wrapper">
+            <div class="logs-header">
+                <h3 class="logs-title">Live Logs</h3>
+                <div class="logs-controls">
+                    <select id="sourceFilter" class="control-select">
+                        <option value="">All Sources</option>
+                        <option value="fastapi">FastAPI</option>
+                        <option value="nginx">Nginx</option>
+                        <option value="system">System</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    
+                    <select id="levelFilter" class="control-select">
+                        <option value="">All Levels</option>
+                        <option value="debug">Debug</option>
+                        <option value="info">Info</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                    
+                    <button id="clearBtn" class="control-btn" title="Clear logs">Clear</button>
+                    <button id="scrollBtn" class="control-btn active" title="Auto-scroll">Scroll</button>
+                </div>
+            </div>
+            
+            <div id="logs" class="logs-container">
+                <div class="empty-state">
+                    Waiting for logs... Make sure your script is running!
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Stop Logsy Modal -->
+    <div id="stopModal" class="modal" onclick="hideStopModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3>🛑 Stop Logsy Background Processes</h3>
+                <span class="modal-close" onclick="hideStopModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>To stop all Logsy background processes on your server, run:</p>
+                
+                <div class="code-block">
+                    <code>sudo pkill -f "logsy_"</code>
+                    <button class="copy-code-btn" onclick="copyStopCommand()" title="Copy command">📋</button>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Check what's running:</h4>
+                    <div class="code-block">
+                        <code>ps aux | grep logsy</code>
+                        <button class="copy-code-btn" onclick="copyCheckCommand()" title="Copy command">📋</button>
+                    </div>
+                </div>
+                
+                <div class="modal-note">
+                    💡 <strong>Note:</strong> Run these commands on the server where you started Logsy streaming.
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html> 

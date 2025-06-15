@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logsy</title>
+    <link rel="stylesheet" href="/static/css/landing.css">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="logo">🚀</div>
+            <h1 class="title">Logsy</h1>
+            <p class="subtitle">Stream your server logs in real-time</p>
+            
+            <div class="action-buttons">
+                <button class="cta-button" onclick="getStarted()">
+                    Get Started
+                </button>
+                <a href="/dashboard" class="secondary-button dashboard-btn">
+                    📊 View Dashboard
+                </a>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Generating your API key...</p>
+            </div>
+            
+            <div class="command-section" id="commandSection">
+                <div class="back-home">
+                    <a href="/" class="back-btn">← Return Home</a>
+                </div>
+                
+                <h3 class="section-title">🚀 Run this command on your server</h3>
+                <div class="command-box-container">
+                    <div class="command-box" id="commandBox"></div>
+                    <button class="copy-btn-topright" id="copyBtn" onclick="copyCommand()" title="Copy command">
+                        📋 Copy
+                    </button>
+                </div>
+                
+                <div class="button-group">
+                    <a href="https://github.com/deveshparagiri/logsy" target="_blank" rel="noopener noreferrer" class="secondary-button">
+                        <span>View on Github</span>
+                        <span style="margin-left: 0.25rem;">↗</span>
+                    </a>
+                    <a class="secondary-button dashboard-only-btn" id="dashboardBtn" href="#" target="_blank">
+                        📊 View Dashboard
+                    </a>
+                </div>
+                
+                <div class="warning" id="apiKeyWarning">
+                    ⚠️ <strong>Save your API key</strong>
+                    <br>
+                    <div class="api-key-container">
+                        <code id="apiKeyDisplay"></code>
+                        <button class="copy-icon-inline" onclick="copyApiKey()" title="Copy API key">
+                            📋
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hint">
+                    ✨ The command will automatically download and run the log shipper on your server
+                </div>
+            </div>
+                
+
+                
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🚀</span>
+                    <h3 class="feature-title">Zero Setup</h3>
+                    <p class="feature-desc">No signup, no config files. Just one command.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">Real-time</h3>
+                    <p class="feature-desc">See your logs as they happen, instantly.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🔒</span>
+                    <h3 class="feature-title">Secure</h3>
+                    <p class="feature-desc">No DB, no storage, no worries.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">🌍</span>
+                    <h3 class="feature-title">Universal</h3>
+                    <p class="feature-desc">Works with any server, any logs, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/landing.js"></script>
+</body>
+</html> 
