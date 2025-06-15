@@ -626,7 +626,7 @@ body.command-active {
 }
 
 .feature-title {
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
@@ -646,7 +646,7 @@ body.command-active {
 .x-follow-link {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
     transition: var(--transition);
     opacity: 0.8;
@@ -753,7 +753,7 @@ body.command-active {
     }
 
     .x-follow-link {
-        font-size: 0.75rem;
+        font-size: 0.9rem;
     }
 
     .hero.command-active {
