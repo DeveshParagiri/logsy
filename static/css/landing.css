@@ -25,6 +25,12 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    min-height: 100vh;
+}
+
+body.command-active {
+    height: auto;
+    overflow-y: auto;
 }
 
 .container {
@@ -32,7 +38,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: 0.5rem;
+}
+
+.container.command-active {
+    height: auto;
+    align-items: flex-start;
+    padding: 1rem 0.5rem;
 }
 
 .hero {
@@ -40,6 +52,17 @@ body {
     width: 100%;
     text-align: center;
     animation: fadeInUp 0.8s ease-out;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.hero.command-active {
+    min-height: auto;
+    height: auto;
+    justify-content: flex-start;
+    padding-top: 2rem;
 }
 
 @keyframes fadeInUp {
@@ -54,8 +77,8 @@ body {
 }
 
 .logo {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -65,9 +88,9 @@ body {
 }
 
 .title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 50%, #06b6d4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -75,10 +98,20 @@ body {
     letter-spacing: -0.02em;
 }
 
+.setup-caption {
+    font-size: 0.9rem;
+    color: var(--success);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
 .subtitle {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
     font-weight: 400;
 }
 
@@ -170,7 +203,7 @@ body {
     gap: 1rem;
     max-width: 800px;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .dashboard-btn {
@@ -218,8 +251,9 @@ body {
     display: none;
     max-width: 700px;
     width: 100%;
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
     animation: slideUp 0.5s ease-out;
+    padding-top: 2rem;
 }
 
 @keyframes slideUp {
@@ -566,42 +600,62 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    margin-top: 3rem;
-    max-width: 800px;
-    width: 100%;
+    margin-top: 1rem;
+    max-width: 100%;
 }
 
 .feature {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 1.5rem;
+    padding: 0.75rem;
     text-align: center;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .feature:hover {
-    border-color: var(--accent);
     transform: translateY(-2px);
+    border-color: var(--accent);
 }
 
 .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
     display: block;
+    margin-bottom: 0.25rem;
 }
 
 .feature-title {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
 }
 
 .feature-desc {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
     line-height: 1.4;
+}
+
+.footer-link {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.x-follow-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+    opacity: 0.8;
+}
+
+.x-follow-link:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateY(-1px);
 }
 
 .existing-user {
@@ -638,65 +692,81 @@ body {
 /* Mobile Optimizations */
 @media (max-width: 768px) {
     .container {
-        padding: 1rem;
+        padding: 0.5rem;
     }
-    
+
     .hero {
-        max-width: 100%;
+        padding: 0;
     }
-    
+
     .logo {
-        font-size: 3rem;
+        font-size: 2.5rem;
+        margin-bottom: 0.25rem;
     }
-    
+
     .subtitle {
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
     }
-    
+
+    .setup-caption {
+        font-size: 0.8rem;
+    }
+
     .action-buttons {
         grid-template-columns: 1fr;
         gap: 0.75rem;
-        max-width: 320px;
-        margin: 0 auto 2rem;
-    }
-    
-    .action-buttons .secondary-button,
-    .action-buttons .dashboard-btn {
-        width: 100%;
-        max-width: none;
-    }
-    
-    .command-box {
-        font-size: 0.8rem;
-        padding: 1rem;
-    }
-    
-    .button-group {
-        flex-direction: column;
-        align-items: stretch;
-        max-width: 100%;
-        margin: 0 0 2rem;
+        margin-bottom: 1rem;
     }
 
-    .secondary-button {
-        width: 100%;
-        max-width: 200px;
-        justify-content: center;
+    .action-buttons .secondary-button,
+    .action-buttons .cta-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
     }
-    
-    .button-group .secondary-button {
-        max-width: none;
-        width: 100%;
-    }
-    
+
     .features {
         grid-template-columns: 1fr;
-        gap: 0.75rem;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
     }
-    
+
     .feature {
-        padding: 1.25rem;
+        padding: 0.5rem;
+    }
+
+    .feature-icon {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .feature-title {
+        font-size: 0.8rem;
+    }
+
+    .feature-desc {
+        font-size: 0.7rem;
+    }
+
+    .footer-link {
+        margin-top: 0.75rem;
+    }
+
+    .x-follow-link {
+        font-size: 0.75rem;
+    }
+
+    .hero.command-active {
+        padding-top: 1rem;
+    }
+
+    .command-section {
+        margin: 1rem auto 0;
+        padding-top: 1rem;
+    }
+
+    .container.command-active {
+        padding: 0.5rem;
     }
 }
 

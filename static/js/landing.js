@@ -18,6 +18,9 @@ async function getStarted() {
         // Show command section
         document.getElementById('loading').style.display = 'none';
         document.getElementById('commandSection').style.display = 'block';
+        document.body.classList.add('command-active');
+        document.querySelector('.container').classList.add('command-active');
+        document.querySelector('.hero').classList.add('command-active');
 
     } catch (error) {
         alert('Error generating API key. Please try again.');
