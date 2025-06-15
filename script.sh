@@ -119,7 +119,7 @@ esac
 
 # Original functionality - streaming mode
 API_KEY="$1"
-LOGSY_URL="${2:-https://logsy.deveshparagiri.com}"
+LOGSY_URL="${2:-https://www.logsy.info}"
 
 if [ -z "$API_KEY" ]; then
     echo "❌ Usage: $0 <API_KEY> [LOGSY_URL]"
