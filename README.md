@@ -52,14 +52,6 @@ A lightweight, real-time log streaming service that allows you to stream server 
    uvicorn app:app --host 0.0.0.0 --port 8000
    ```
 
-## Deployment
-
-### Railway
-
-1. Connect your GitHub repository to Railway
-2. Deploy using the included Dockerfile
-3. Set up your custom domain
-
 ### Docker
 
 ```bash
