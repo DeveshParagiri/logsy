@@ -65,6 +65,10 @@ body.command-active {
     padding-top: 2rem;
 }
 
+.hero.command-active .product-hunt-badge {
+    display: none;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
